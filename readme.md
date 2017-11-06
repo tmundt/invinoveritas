@@ -3,8 +3,7 @@
 ### E-Business project at Beuth Hochschule, Berlin in 2015/16 by Thomas Mundt 
 
 <p>
- <strong>Main technologies being used:</strong>
- App strongly consists of tech stack MEAN, among others:
+ <strong>Technologies being used (mainly MEAN stack) among others:</strong>
  <ul>
    <li>AngularJS 1.4.8</li>
    <li>Angular Bootstrap 0.14.3</li>
