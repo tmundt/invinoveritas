@@ -4,15 +4,17 @@
 
 <p>
  <strong>Main technologies being used:</strong>
+ App strongly consists of tech stack MEAN, among others:
  <ul>
    <li>AngularJS 1.4.8</li>
    <li>Angular Bootstrap 0.14.3</li>
    <li>Bootstrap 3.3.6</li>
-   <li>NodeJS 6.8.11 (LTS Boron)</li>
+   <li>NodeJS 6.9.11 (LTS Boron)</li>
    <li>Bower 1.7.2</li>
    <li>Express 4.13.3</li>
    <li>Morgan 1.6.1 (NPM library Logger)</li>
    <li>facebook passport (NPM library)</li>
+   <li>Gulp 3.9.0</li>
    <li>angular-toastr 1.7.0</li>
  </ul>
 
