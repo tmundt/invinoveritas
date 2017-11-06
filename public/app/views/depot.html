@@ -1,0 +1,193 @@
+
+<div class="winedepot-bg">
+    <div>
+        <div ng-show="showCreateForm">
+            <form novalidate name="wineDataForm" style="margin-top: 50px;margin-left:50px;">
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Name des Weins</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6 with-help">
+                        <input type="text" style="width: 350px;" id="name" name="name" placeholder="Weinname" class="form-control" ng-model="wine.name"
+                               ng-required="true">
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <br>
+                <br/>
+
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Jahrgang</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6 with-help">
+                        <input style="width: 100px;" type="number" name="year" class="form-control" ng-model="wine.year" ng-minlength="4" ng-maxlength="4"
+                               ng-maxlength="20" ng-required="true">
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                <label class="col-xs-3 col-sm-3 control-label label-depotdata">Sorte</label>
+                <div id="selectedSort" class="col-xs-5 col-sm-5 col-md-6 with-help">
+                    <select style="width: 130px;" id="sort" name="sort" class="form-control" ng-init="wine.selectedSort = '0'" ng-model="wine.selectedSort"
+                            ng-change="selectionChanged()"
+                            ng-options="selectedSort.key as selectedSort.value for selectedSort in sortOfWine">
+                    </select>
+                </div>
+            </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Geschmack</label>
+                    <div id="selectedTaste" class="col-xs-5 col-sm-5 col-md-6 with-help">
+                        <select style="width: 155px;" id="taste" name="sort" class="form-control" ng-init="wine.selectedTaste = '0'" ng-model="wine.selectedTaste"
+                                ng-change="selectionChanged()"
+                                ng-options="selectedTaste.key as selectedTaste.value for selectedTaste in taste">
+                        </select>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Region</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6">
+
+                        <input style="width: 300px;" type="text" name="region" class="form-control" ng-model="wine.region"
+                               ng-required="true" placeholder="z.B. Rheinhessen, Baden">
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Menge</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6">
+
+                        <input style="width: 80px;" type="number" name="amount" class="form-control" ng-model="wine.amount"  ng-maxlength="4"
+                               ng-required="true">
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Einkaufsort</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6">
+
+                        <input style="width: 300px;" type="text" name="shop" class="form-control" ng-model="wine.shop"
+                               placeholder="Geschäft, Verkäufer, etc.">
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Gekauft am</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6">
+
+                        <input style="width: 200px;" type="date" name="buyDate" class="form-control" ng-model="wine.buyDate"
+                               ng-required="true">
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Preis in €</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6">
+
+                        <input style="width: 100px;" type="text" name="price" class="form-control" ng-model="wine.price"
+                               ng-required="true">
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Bewertung</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6" style="margin-top: 8px;">
+
+                        <uib-rating class="rating" ng-model="wine.rating" max="5" readonly="false"
+                                    titles="['one','two','three']" aria-labelledby="3">
+                        </uib-rating>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group data-form">
+                    <label class="col-xs-3 col-sm-3 control-label label-depotdata">Bemerkungen</label>
+                    <div class="col-xs-5 col-sm-5 col-md-6">
+
+                        <input style="width: 300px;" type="text" name="remarks" class="form-control" ng-model="wine.remarks">
+                    </div>
+                </div>
+                <br/>
+                <br/>
+
+
+                <br/>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <div id="savedata-button">
+                                <!--<button class="btn btn-primary" ng-disabled="changePasswordForm.$invalid" ng-click="submitData(changePasswordForm.$valid)" >Daten speichern</button> -->
+                                <button class="btn btn-primary" ng-click="submitData(wineDataForm.$valid)" >Daten speichern</button>
+                            </div>
+                        </div>
+                        <div class="col-md-1" style="margin-left: 40px;">
+                            <div id="reset-button">
+                                <!--<button class="btn btn-primary" ng-disabled="changePasswordForm.$invalid" ng-click="submitData(changePasswordForm.$valid)" >Daten speichern</button> -->
+                                <button class="btn btn-primary" ng-click="reset()" >Abbrechen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div ng-show="showResultList">
+            <uib-pagination total-items="totalResults" items-per-page= "1" num-pages="totalResults" ng-model="currentPage"
+                            max-size="maxSize" class="pagination-sm" boundary-links="false" style="margin-left: 50%;"
+                            previous-text="&lsaquo;" next-text="&rsaquo;" force-ellipses="true">
+
+            </uib-pagination>
+            <div class="result-list" ng-repeat="result in resultDepotList.slice(((currentPage-1)*1), ((currentPage)*1))">
+                <br/>
+                <div style="text-align: left;">
+                    <div>
+                        <span class="resultItem"><strong>Name:</strong> {{result.name}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Jahrgang: </strong>{{result.year}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Sorte: </strong>{{result.sort}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Geschmack: </strong>{{result.taste}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Region: </strong>{{result.region}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Menge: </strong>{{result.amount}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Einkaufsort: </strong>{{result.shop}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Eingekauft am: </strong>{{result.buyDate|date:'dd.MM.yyyy'}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Preis: </strong>{{result.price}}€</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Bewertung: </strong>
+                            <uib-rating class="rating" ng-model="result.rating" max="5" readonly="true"
+                                        titles="['one','two','three']" aria-labelledby="3">
+                            </uib-rating>
+                        </span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem">
+                            <strong>Bemerkungen: </strong>{{result.remarks}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

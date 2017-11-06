@@ -1,0 +1,311 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+//$primary-background-color: #A0522D;
+$primary-background-color: black;
+
+body {
+  font: 110% $font-stack;
+  color: $primary-color;
+  background-color: $primary-background-color;
+}
+
+//main background image at index page
+.bg-picture {
+  background-image: url("../images/weinfass_weinberg_1920-1080.jpg");
+  height: 1000px;
+  margin-top: -50px;
+}
+
+.winedepot-bg {
+  background-image: url("../images/Wine_Cellar_1920x1080.jpg");
+  height: 750px;
+  margin-top: -20px;
+  background-size: 110%;
+  z-index: -1;
+  /*background-repeat: no-repeat;*/
+}
+
+.form-control {
+  background-color: white;
+  //width: 50%;
+}
+
+.label-depotdata{
+  background-color: white;
+  font-size: medium;
+  margin-top: 3px;
+  width: 160px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: center;
+}
+
+.data-form {
+  background-color: white;
+  opacity: 0.8;
+}
+.userdata-form label {
+  margin-top: 10px;
+}
+
+.text-white {
+  color: white;
+}
+
+.search-field {
+  font-size: x-large;
+}
+
+.search-button {
+  margin-top: -11px;
+  //margin-left: 8px;
+}
+
+.glyphicons-lg {
+  font-size: 16px;
+  padding-top: 2px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+  margin-top: -10px;
+}
+.navigation-footer {
+  margin-top: -50px;
+}
+
+.navbar-nav {
+  float:none;
+}
+
+::-webkit-input-placeholder {
+  font-size: medium;
+  padding: 5px;
+}
+
+.winedata-form {
+  width: 210px;
+  margin-left: 90%;
+  //margin-left: 348px;
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+
+.tooltip-icon {
+  //margin-top: -13px;
+  margin-left: -20px;
+  padding: white;
+}
+
+// animations for spinner symbol
+
+// change font size for text input
+input[type="text"] {
+  font-size:24px;
+  margin: 3px;
+}
+
+// center content
+.center {
+  margin: auto;
+  width: 25%;
+  //border: 3px solid #73AD21;
+  padding-left: 12px;
+}
+
+.rating {
+  background-color: white;
+  padding: 5px;
+  color: black;
+  margin-top: 10px;
+}
+
+.result-list {
+  background-color: whitesmoke;
+  opacity: 0.7;
+  font-size: medium;
+  margin-left: 230px;
+  width: 70%;
+  overflow: auto;
+  border: 2px solid #9f191f;
+  text-align: left;
+  //margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+.blocks {
+  border-spacing:5px;
+}
+
+//.blocks .btn-primary
+//{
+//  padding: 24px 12px;
+//  //border-radius: 0;
+//
+//}
+
+.side-button {
+  width: 120px;
+  margin: 15px;
+}
+
+.about-us-widget {
+  background-color: whitesmoke;
+  opacity: 0.6;
+  font-size: medium;
+  margin-left: 230px;
+  width: 70%;
+  overflow: auto;
+  border: 2px solid #9f191f;
+  text-align: left;
+  color: black;
+}
+
+.about-us-widget p {
+  margin: 20px;
+}
+
+#hintWidget {
+  background-color: whitesmoke;
+  opacity: 0.8;
+  font-size: x-large;
+  margin-left: 230px;
+  width: 60%;
+  border: 2px solid #9f191f;
+  text-align: center;
+  height: 250px;
+
+}
+.resultItem {
+  float: left;
+  margin-left: 20px;
+}
+
+.floatImage {
+  float: right;
+  margin: 10px;
+  width:304px;
+  height:228px;
+}
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+  padding-left: 200px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 60%;
+  margin-left: -240px;
+  margin-top: 30px;
+  overflow-y: auto;
+  background: #000;
+  opacity: 0.6;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 200px;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+  color: white;
+}
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-right: -200px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  text-indent: 20px;
+  line-height: 40px;
+}
+
+.sidebar-nav li a {
+  display: block;
+  text-decoration: none;
+  //color: #999999;
+  color: white;
+  font-size: medium;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  font-size: 18px;
+  line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+@media(min-width:768px) {
+  #wrapper {
+    padding-left: 200px;
+  }
+
+  #wrapper.toggled {
+    padding-left: 0;
+  }
+
+  #sidebar-wrapper {
+    width: 200px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 0;
+  }
+
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
+}

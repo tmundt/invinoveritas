@@ -1,0 +1,45 @@
+{
+  "name": "invinoveritas",
+  "version": "1.0.1",
+  "engines": {
+    "node": "6.11.3"
+  },
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "bower": "^1.7.2",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^1.1.0",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "kerberos": "0.0.17",
+    "mongoose": "^4.3.4",
+    "morgan": "~1.6.1",
+    "node-sass-middleware": "^0.8.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "cors": "^2.7.1",
+    "gulp": "^3.9.0",
+    "gulp-bootstrap-configurator": "^0.3.2",
+    "gulp-bower": "0.0.11",
+    "gulp-bower-files": "^0.2.7",
+    "gulp-inject": "^3.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-sass": "^2.1.1",
+    "main-bower-files": "^2.11.0",
+    "urlencode": "^1.1.0"
+  }
+}

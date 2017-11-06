@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>In Vino Veritas!</title>
+    <base href="/">
+    <!-- styles:css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="lib/components-font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="lib/angular-toastr/dist/angular-toastr.css">
+    <link rel="stylesheet" href="lib/bootstrap-social/bootstrap-social.css">
+    <!-- endinject -->
+</head>
+<body>
+<br>
+<!-- <div class="header">
+    <ul class="nav nav-pills pull-left">
+        <li active><a href="">Search</a></li>
+        <li disabled><a href="">Find Teammates</a></li>
+    </ul>
+
+</div>
+-->
+<!-- NAVIGATION -->
+<div ng-controller="navCtrl">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="home">In Vino Veritas!</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <!--<a ui-sref="depot">Mein Weindepot</a>-->
+
+                <a class="dropdown-toggle" data-toggle="dropdown" ng-click="goDepot();">Mein Weindepot</a>
+                <!--<div ng-show="isLoggedIn">-->
+                <ul ng-show="isLoggedIn" class="dropdown-menu dropdown-menu-right">
+                    <li ng-if="showCreateEntry==true">
+                        <a ng-click="showCreateForm();">Hinzufügen</a>
+                    </li>
+                    <!--<li ng-if="showChangeEntry==true">
+                        <a ng-click="showUpdateForm();">Bearbeiten</a>
+                    </li>
+                    <li ng-if="showDeleteEntry==true">
+                        <a ng-click="deleteEntry();">Löschen</a>
+                    </li>-->
+                </ul>
+                <!--</div>-->
+
+            </li>
+            <li><a ui-sref="about-idea">Die Idee</a></li>
+            <li><a ui-sref="about-project">Das Projekt</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 5px;">
+            <li ng-hide="isLoggedIn">
+                <a href="/auth/facebook">
+                    <span class="fa fa-facebook-square" style="color: deepskyblue;"> Anmelden</span>
+                </a></li>
+            <li ng-show="isLoggedIn">
+                <span style="color: white; padding-top: 18px; padding-bottom: 15px;" class="fa fa-user"> {{currentUser.fb.firstName}}
+                </span>
+            </li>
+            <li ng-show="isLoggedIn">
+                <a href="/logout"> Abmelden </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<ui-view></ui-view>
+<!-- inject:js -->
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="lib/angular-simple-logger/dist/angular-simple-logger.js"></script>
+<script src="lib/lodash/lodash.js"></script>
+<script src="lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="lib/angular-google-maps/dist/angular-google-maps.js"></script>
+<!-- endinject -->
+
+<script src="app.js"></script>
+<!-- scripts:js -->
+<script src="assets/js/auth.service.js"></script>
+<script src="assets/js/depot.controller.js"></script>
+<script src="assets/js/home.controller.js"></script>
+<script src="assets/js/login.controller.js"></script>
+<!-- endinject -->
+</body>
+<footer>
+    <nav class="navbar navbar-inverse navigation-footer" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="home">In Vino Veritas!</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="imprint">Impressum</a></li>
+        </ul>
+    </nav>
+</footer>
+</html>

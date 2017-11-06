@@ -1,0 +1,167 @@
+<!-- partial-home.html -->
+<section>
+    <div class="jumbotron text-center bg-picture">
+        <div class="text-white">
+            <h1>In Vino Veritas</h1>
+            <p>Entdecken Sie Weine und mehr.</p>
+        </div>
+        <div class="row">
+            <div class="center">
+                <div style="background-color: white;">
+                    <!--<div style="background-color: white; width: 272px;height: 20px; margin-left:526px;">-->
+                    Suche mit:&nbsp&nbsp
+                    <label>
+                        <input type="radio" ng-model="searchapi" value="winecom">
+                        wine.com (USA)
+                    </label>
+                    <span>&nbsp&nbsp</span>
+                    <label>
+                        <input type="radio" ng-model="searchapi" value="lidl">
+                        LIDL (D)
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div ng-show="searchapi =='winecom'" style="margin-top: 7px;">
+            <form class="form-wrapper cf" novalidate name="searchForm">
+                <input type="text" placeholder="Wein Name" required class="search-field" ng-model="wine" name="wine" ng-minlength="5">
+                <button type="submit" ng-disabled="searchForm.$invalid"
+                        class="btn btn-primary search-button" ng-click="search();">
+                    <span class="glyphicon glyphicon-search glyphicons-lg"></span>&nbsp;
+                </button>
+
+            </form>
+        </div>
+        <div ng-show="searchapi =='lidl'">
+            <form class="form-wrapper cf center" novalidate name="searchFormLidl">
+                <!-- Sort of Wine -->
+                <div class="form-group winedata-form" style="margin-left: 19%;">
+                    <div id="selectedSort">
+                        <select id="sort" name="sort" class="form-control" ng-init="selectedSort = '0'" ng-model="selectedSort"
+                                ng-change="selectionChanged()"
+                                ng-options="selectedSort.key as selectedSort.value for selectedSort in sortOfWine" ng-required="true">
+                        </select>
+                        <!--<span class="pull-right glyphicon glyphicon-question-sign tooltip-icon" uib-tooltip="Bitte wählen Sie die Weinsorte aus." tooltip-placement="right" tooltip-trigger="mouseenter"></span>-->
+                    </div>
+                </div>
+                <!-- Taste of Wine -->
+                <div class="form-group winedata-form">
+                    <div id="selectedTaste">
+                        <select id="taste" name="taste" class="form-control" ng-init="selectedTaste = '0'" ng-model="selectedTaste" ng-change="selectionChanged()"
+                                ng-options="selectedTaste.key as selectedTaste.value for selectedTaste in taste" ng-required="true"></select>
+                        <!--<span class="pull-right glyphicon glyphicon-question-sign tooltip-icon" uib-tooltip="Bitte wählen Sie einen Geschmack aus." tooltip-placement="right" tooltip-trigger="mouseenter"></span>-->
+                    </div>
+                </div>
+                <!-- Category of Price -->
+                <div class="form-group winedata-form">
+                    <div id="selectedPrice">
+                        <select id="price" name="price" class="form-control" ng-init="selectedPrice = '0'" ng-model="selectedPrice" ng-change="selectionChanged()"
+                                ng-options="selectedPrice.key as selectedPrice.value for selectedPrice in priceCategory"></select>
+                        <!--<span class="pull-right glyphicon glyphicon-question-sign tooltip-icon" uib-tooltip="Bitte wählen Sie einen Geschmack aus." tooltip-placement="right" tooltip-trigger="mouseenter"></span>-->
+                    </div>
+                </div>
+                <!-- Origin of Wine / Country -->
+                <div class="form-group winedata-form">
+                    <div id="selectedCountry">
+                        <select id="country" name="country" class="form-control" ng-init="selectedCountry = '0'" ng-model="selectedCountry" ng-change="selectionChanged()"
+                                ng-options="selectedCountry.key as selectedCountry.value for selectedCountry in origin"></select>
+                        <!--<span class="pull-right glyphicon glyphicon-question-sign tooltip-icon" uib-tooltip="Bitte wählen Sie einen Geschmack aus." tooltip-placement="right" tooltip-trigger="mouseenter"></span>-->
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-2 text-center">
+                            <div class="btn-group" data-toggle="buttons">
+                                <button type="submit" ng-disabled="searchFormLidl.$invalid"
+                                    class="btn btn-primary search-button center-block" ng-click="searchLidl();">
+                                    <span class="glyphicon glyphicon-search glyphicons-lg">&nbsp;Suche</span>
+                                </button>
+
+                            <!--<div class="col-md-3">-->
+                            <button type="submit" ng-disabled="searchFormLidl.$invalid" style="margin-left: 7px;"
+                                    class="btn btn-primary search-button center-block" ng-click="resetSearch();">
+                                <span class="glyphicon glyphicon-refresh glyphicons-lg">&nbsp;Reset</span>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div ng-show="showResultListLidl&&searchapi =='lidl'">
+
+            <uib-pagination total-items="totalResults" items-per-page= "1" num-pages="totalResults" ng-model="currentPage"
+                            max-size="maxSize" class="pagination-sm" boundary-links="false"
+                            previous-text="&lsaquo;" next-text="&rsaquo;" force-ellipses="true">
+
+            </uib-pagination>
+            <div class="result-list" ng-repeat="result in wineListResultLidl.slice(((currentPage-1)*1), ((currentPage)*1))">
+                <br/>
+                <div style="text-align: left;">
+                    <img class="floatImage" ng-src="{{result.imageUrl}}"/>
+                    <div>
+                        <span class="resultItem"><strong>Name:</strong> {{result.name}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Geschmack: </strong>{{result.taste}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Preis: </strong>{{result.price}}€</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Herkunft: </strong>{{result.origin}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Region: </strong>{{result.area}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem">
+                            <strong>Bemerkungen: </strong>{{result.description}}
+                        </span>
+                            <br/>
+                            <br/>
+                            <a ng-href="{{result.shopUrl}}" class="btn btn-info" role="button" style="margin:20px;" target="new">Gehe zum Onlineshop</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div ng-show="showResultListWineCom&&searchapi =='winecom'">
+            <uib-pagination total-items="totalResults" items-per-page= "1" num-pages="totalResults" ng-model="currentPage"
+                            max-size="maxSize" class="pagination-sm" boundary-links="false"
+                            previous-text="&lsaquo;" next-text="&rsaquo;" force-ellipses="true">
+
+            </uib-pagination>
+            <div class="result-list" ng-repeat="result in wineListResultWineCom.slice(((currentPage-1)*1), ((currentPage)*1))">
+                <br/>
+                <div style="text-align: left;">
+                    <img class="floatImage" ng-src="{{result.vineyardImageUrl}}" alt="Kein Bild vorhanden"/>
+                    <div>
+                        <span class="resultItem"><strong>Name:</strong> {{result.name}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Sorte: </strong>{{result.sort}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Preis: </strong>{{result.price}}$</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Weinberg/Hersteller: </strong>{{result.vineyardName}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem"><strong>Appellation: </strong>{{result.appellationName}} in Region: {{result.appellationRegion}}</span>
+                        <br/>
+                        <br/>
+                        <span class="resultItem">
+                            <strong>Bemerkungen: </strong>{{result.misc}}
+                        </span>
+                        <br/>
+                        <br/>
+                        <a ng-href="{{result.shopUrl}}" class="btn btn-info" role="button" style="margin:20px;" target="new">Gehe zum Onlineshop</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+</section>

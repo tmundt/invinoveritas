@@ -1,0 +1,33 @@
+{
+  "name": "invinoveritas",
+  "description": "find and buy wine all over the world",
+  "main": "server.js",
+  "authors": [
+    "Tom@Pegasus <info@thomas-mundt.de>"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "www.thomas-mundt.de",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.14.3",
+    "bootstrap": "~3.3.6",
+    "bootstrap-social": "~4.12.0",
+    "font-awesome": "~4.5.0",
+    "components-font-awesome": "~4.5.0",
+    "angular-google-maps": "~2.3.1",
+    "angular-toastr": "~1.7.0"
+  }
+}
