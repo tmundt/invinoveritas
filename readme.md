@@ -1,9 +1,9 @@
-# in vino veritas!
+# In vino veritas!
 ## A web application for finding wines in the internet
 ### E-Business project at Beuth Hochschule, Berlin in 2015/16 by Thomas Mundt 
 
 <p>
- <strong>Main technologies being used:</strong>
+ ## Main technologies being used:
  - AngularJS 1.4.8
  - Angular Bootstrap 0.14.3
  - Bootstrap 3.3.6
