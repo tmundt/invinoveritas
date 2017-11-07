@@ -18,7 +18,7 @@
  </ul>
 
 ## Running demo on Heroku
-- For live demo, see https://invinoveritas.herokoapp.com
+- For live demo, see https://invinoveritas.herokuapp.com
 
 ## HINTS
 - Due to disconnected API services of third party providers, some restrictions to the app apply! 
